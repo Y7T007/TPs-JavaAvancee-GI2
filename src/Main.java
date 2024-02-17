@@ -18,8 +18,8 @@ public class Main {
         Compte compte = new Compte();
 
         for (int i = 0; i < 20; i++) {
-            new Thread(new ThreadVerser(compte)).start();
-            new Thread(new ThreadRetirer(compte)).start();
+            new Thread(new ThreadVerser(compte, lock)).start();
+            new Thread(new ThreadRetirer(compte, lock)).start();
         }
 
         System.out.println("Solde final : " + compte.consulter());
